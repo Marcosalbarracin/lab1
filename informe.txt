@@ -1,0 +1,195 @@
+
+Informe del proyecto:
+Sistema de Gestión de Tareas Pendientes  
+
+Introducción
+Este informe describe el desarrollo e implementación de un proyecto de programación orientado a la gestión de tareas, el cual tiene como objetivo principal la creación de un sistema eficiente para organizar, priorizar y monitorear las tareas pendientes de los usuarios. La importancia de este proyecto radica en su capacidad para optimizar la gestión del tiempo y mejorar la productividad, facilitando a los usuarios la planificación de sus actividades y ayudando al usuario a gestionar sus tareas. logrando visualizar con facilidad cuales completo y cuales no, categorizarlos, ordenarlas por prioridad y describiendolas detalladamente.
+Objetivos del Proyecto
+El principal objetivo del proyecto es desarrollar un sistema de gestión de tareas que permita a los usuarios añadir, organizar, y monitorizar sus pendientes de manera eficiente. Se espera lograr lo siguiente con la implementación del sistema:
+Estructuración y Comentarios del Código: Cada línea de código será comentada para proporcionar una comprensión clara de su propósito y función dentro del programa. Este enfoque garantizará que cualquier persona que trabaje en el código pueda entenderlo fácilmente y realizar modificaciones cuando sea necesario.
+Comprensión y Documentación de Estructuras de Datos: Se proporcionará una explicación detallada de las estructuras de datos utilizadas en el sistema, asegurando que su funcionalidad sea clara y bien documentada en el informe final.
+Implementación de una Lista Enlazada Ordenada: Una lista enlazada ordenada se utilizará para almacenar las tareas pendientes, lo que permitirá una gestión eficiente y la capacidad de mantener las tareas en un orden específico, según su prioridad o fecha de vencimiento.
+Incorporación de Validaciones: Se agregarán diversas validaciones al código para garantizar su correcto funcionamiento, incluyendo:
+Verificación de duplicados al agregar nuevas tareas.
+Mensajes de error cuando se intenten eliminar o marcar como completadas tareas que no existen.
+Otras validaciones necesarias para mejorar la robustez del sistema.
+Desarrollo de Funciones Básicas: El sistema incluirá funcionalidades esenciales como:
+Agregar nuevas tareas.
+Marcar tareas como completadas.
+Eliminar tareas existentes.
+Mostrar todas las tareas.
+Mostrar sólo las tareas pendientes.
+Buscar tareas por su descripción para evitar duplicados.
+Implementación de Características Avanzadas: Además de las funciones básicas, se implementarán características avanzadas como:
+Mostrar tareas de una categoría específica indicada por el usuario.
+Generar informes sobre el progreso de las tareas, incluyendo el número de tareas completadas y estadísticas en porcentaje de las pendientes, completadas.
+Análisis y Optimización
+Finalmente, se analizará la eficiencia del sistema utilizando notación asintótica. Esto incluirá el cálculo del orden de la función ‘agregar_tarea’, así como la optimización del módulo de estadísticas mediante la implementación de un método ‘numero_tareas_pendientes’, que ofrezca un rendimiento de orden constante en la verificación de tareas pendientes.
+Este enfoque integral asegurará que el sistema no solo sea funcional y fácil de usar, sino también eficiente y escalable, permitiendo a los usuarios gestionar sus tareas de manera efectiva.
+
+
+
+
+
+
+
+
+
+
+Descripción del Sistema
+
+El sistema de gestión de tareas pendientes desarrollado en este proyecto se centra en ofrecer una serie de funcionalidades tanto básicas como avanzadas que permiten a los usuarios manejar eficientemente sus tareas diarias.
+Funcionalidades Implementadas:
+Funcionalidades Básicas:
+Agregar una nueva tarea: Permite al usuario incorporar una nueva tarea a la lista de tareas pendientes.
+Marcar una tarea como completada: Permite cambiar el estado de una tarea a "completada".
+Eliminar una tarea existente: Permite al usuario eliminar una tarea de la lista.
+Mostrar todas las tareas: Muestra todas las tareas, tanto pendientes como completadas.
+Mostrar tareas pendientes: Filtra y muestra solo aquellas tareas que aún no han sido completadas.
+Buscar una tarea por su descripción: Facilita la localización de una tarea específica mediante la búsqueda por texto.
+Funcionalidades Avanzadas:
+Priorizar tareas según su importancia: Ordena las tareas según la prioridad asignada, ayudando a los usuarios a gestionar sus tareas más urgentes primero.
+Mostrar tareas de una categoría específica: Permite al usuario visualizar las tareas pertenecientes a una categoría indicada, facilitando la organización temática.
+Generar informes de progreso: Ofrece un resumen del progreso, incluyendo el número de tareas completadas.
+Estructuras de Datos Utilizadas:
+El sistema se basa en una estructura de datos de lista enlazada para el almacenamiento y manejo de las tareas. Cada tarea se almacena en un nodo, y estos nodos se organizan de forma secuencial a través de punteros, creando una lista enlazada que facilita tanto la inserción como la eliminación de tareas de una forma más fácil.
+Nodo: Representa cada tarea individual, conteniendo la información relevante como la descripción, el estado de la tarea (pendiente o completada), la prioridad y la categoría.
+Lista Enlazada: Es la estructura que maneja los nodos, permitiendo recorrer la lista de tareas, agregar nuevas tareas, eliminarlas, y realizar otras operaciones de manera ordenada y funcional. Cabe destacar que tiene un atributo para ir asignando un id nuevo a cada tarea que crearemos y dos contadores para llevar la cuenta de las tareas pendientes y el total de todas.
+Metodología y Diseño
+En el diseño del sistema cada componente cumple una función específica dentro del sistema de gestión de tareas. Las principales clases implementadas son:
+Clase Tarea: Representa una tarea individual, incluyendo atributos como la descripción, el estado (pendiente o completada), la prioridad y la categoría.
+Clase Nodo: Es la unidad básica de la lista enlazada, que contiene una instancia de Tarea y un atributo que te lleva al siguiente nodo en la lista.
+Clase ListaEnlazada: Administra la colección de nodos, ofreciendo métodos para agregar, eliminar, y recorrer las tareas en la lista.
+Estas clases interactúan para manejar las tareas de manera eficiente, permitiendo operaciones como la inserción y eliminación de tareas en tiempo constante o lineal, dependiendo de la operación.
+Implementación y ejemplos
+La implementación del sistema de gestión de tareas se realizó en Python utilizando clases y listas enlazadas. A continuación, se describen brevemente las funcionalidades principales implementadas:
+Agregar Tarea:
+Función agregar_tarea: Permite agregar una nueva tarea a la lista enlazada manteniendo el orden de prioridad. Si la lista está vacía o la nueva tarea tiene una mayor prioridad que la tarea en la cabeza, la nueva tarea se inserta al inicio de la lista. De lo contrario, la lista se recorre hasta encontrar la posición correcta basada en la prioridad.
+Completar Tarea:
+Función completar_tarea: Marca una tarea como completada al buscarla por su ID. Una vez encontrada, se actualiza su estado a "completada".
+Eliminar Tarea:
+Función eliminar_tarea: Elimina una tarea específica de la lista enlazada al buscarla por su ID. La lista se recorre hasta encontrar la tarea, y luego se ajustan los punteros para mantener la estructura de la lista.
+Mostrar Tareas:
+Funciones mostrar_tareas y mostrar_tareas_pendientes: Estas funciones recorren la lista enlazada y muestran todas las tareas o solo las tareas pendientes, respectivamente, con detalles como ID, descripción, prioridad, categoría y estado.
+Guardar y Cargar Tareas desde CSV:
+Funciones guardar_en_csv y cargar_desde_csv: Permiten guardar el estado actual de la lista de tareas en un archivo CSV y cargar tareas desde un archivo CSV al iniciar el sistema.
+Mostrar Estadísticas:
+Función mostrar_estadisticas: Calcula y muestra estadísticas sobre las tareas completadas y pendientes, incluyendo porcentajes.
+Casos de Uso y Ejemplos
+A continuación se presentan ejemplos de ejecución del sistema para diferentes escenarios de uso:
+Agregar una Tarea:
+Entrada: El usuario agrega una tarea con descripción "Finalizar informe", prioridad alta (3) y categoría "Trabajo" desde el menú.
+Salida: La tarea se inserta en la lista según su prioridad iterando nodo a nodo. Si es la primera tarea, se convierte en la cabeza de la lista. El sistema muestra el mensaje: "Tarea agregada con éxito."
+Código que se ejecuta: lista_tareas.agregar_tarea("Finalizar informe", 3, "Trabajo")
+
+
+Completar una Tarea:
+Entrada: El usuario decide completar la tarea con ID 1.
+Salida: El estado de la tarea cambia a "Completada", y el contador de tareas pendientes se reduce.
+Código que se ejecuta: lista_tareas.completar_tarea(1)
+
+
+Mostrar Tareas:
+Entrada: El usuario selecciona la opción para mostrar todas las tareas.
+Salida: El sistema recorre la lista y muestra todas las tareas con su respectiva información.
+Código que se ejecuta: lista_tareas.mostrar_tareas()
+
+
+Mostrar Estadísticas:
+Entrada: El usuario solicita ver las estadísticas de las tareas.
+Salida: El sistema muestra el total de tareas, las tareas completadas, las tareas pendientes y los porcentajes correspondientes.
+Código que se ejecuta: lista_tareas.mostrar_estadisticas()
+Estos ejemplos muestran cómo el sistema de gestión de tareas implementado en Python funciona.
+1. ¿Qué sucede si intentamos agregar una tarea que ya existe en la lista?
+El código tiene un método buscar_tarea_descripcion que verifica si la descripción de la tarea ya existe. Si se encuentra una coincidencia, la tarea no se agrega y se muestra un mensaje de que la tarea ya existe. Esto evita duplicados en las descripciones de las tareas.
+2. ¿Cómo se implementa la priorización de tareas en la lista enlazada?
+La priorización se implementa al agregar una tarea. Si la lista está vacía o si la nueva tarea tiene una prioridad mayor que la primera tarea (la cabeza), la nueva tarea se inserta al principio. Si no, se recorre la lista hasta encontrar la posición correcta (donde la siguiente tarea tenga una prioridad menor) y se inserta allí.
+3. ¿Qué sucede si dos tareas tienen la misma prioridad?
+Si dos tareas tienen la misma prioridad, la nueva tarea se inserta después de la última tarea con esa misma prioridad. Esto significa que las tareas con la misma prioridad se mantienen en el orden en que fueron agregadas, lo que asegura un orden estable en la lista.
+4. ¿Cuál es la complejidad temporal del método para eliminar una tarea de la lista enlazada?
+La complejidad temporal del método eliminar_tarea es O(n), donde n es el número de tareas en la lista. Esto se debe a que, en el peor de los casos, el método debe recorrer toda la lista para encontrar la tarea a eliminar.
+5. ¿Cómo podríamos modificar el sistema para soportar múltiples categorías por tarea?
+Para soportar múltiples categorías por tarea, podrías modificar el atributo categoria para que sea una lista de categorías en lugar de una sola cadena. En la implementación, esto implicaría cambios en los métodos de búsqueda y visualización para manejar y mostrar múltiples categorías.
+class Tarea:
+    def __init__(self, id, descripcion, prioridad, categorias=None):
+        if categorias is None:
+            categorias = ["General"]
+        self.id = id
+        self.descripcion = descripcion
+        self.prioridad = prioridad
+        self.completada = False
+        self.categorias = categorias
+
+
+Luego, deberías actualizar el código donde se maneja la categoría, por ejemplo, al agregar y mostrar tareas.
+Resultados y Conclusiones
+En el código, los resultados se reflejan en las operaciones realizadas, como la adición, eliminación, y completado de tareas, así como en la correcta carga y guardado de las mismas en un archivo CSV. Una conclusión importante podría ser la necesidad de optimizar el proceso de búsqueda si el número de tareas es elevado, quizá utilizando una estructura de datos más eficiente para ciertos casos de uso.
+
+
+
+Planilla de Autoevaluación
+
+
+Tarea
+Responsable(s)
+Valoración
+Comentar el código
+zoe
+ Zoe se encargó de explicar las funciones principales y se aseguró de que todo quedara claro. También se ocupó de los detalles dentro de las funciones, aunque se le pasaron algunos comentarios en partes pequeñas. En general, lograron una documentación bastante completa.
+Entender y explicar la estructura de datos
+zoe y marcos
+Marcos y Zoe trabajaron juntos en el informe sobre la estructura de datos. Marcos lideró la explicación de cómo funcionan las listas enlazadas, dando una visión clara y detallada. Zoe ayudó con ejemplos visuales y diagramas que hicieron más fácil entender cómo funciona todo. Juntos, lograron una explicación completa y fácil de seguir.
+Agregar validaciones
+zoe
+Zoe implementó las validaciones básicas para asegurarse de que las tareas no se duplicaran y que no se intentara eliminar tareas que no existían. Ana añadió mensajes de error detallados y mejoró la lógica de validación. Aunque encontraron algunos problemas al principio, los resolvieron trabajando juntos.
+Implementar marcar tarea como completada
+zoe
+Zoe implementó esta funcionalidad y se aseguró de que las tareas se actualizaran correctamente en el sistema. Además, añadió pruebas para confirmar que todo funcionara bien.
+Implementar mostrar tareas pendientes
+marcos
+Marcos desarrolló esta funcionalidad y añadió una opción para filtrar por prioridad, lo que hizo más fácil ver las tareas más urgentes.
+Implementar buscar tarea por descripción
+ marrcos
+Marcos implementó la funcionalidad de búsqueda, lo que permitió a los usuarios encontrar tareas rápidamente. Aunque la búsqueda funcionaba bien, se hablaron de algunas mejoras para hacerla más eficiente.
+Implementar mostrar tareas por descripción
+zoe
+Zoe extendió la funcionalidad de búsqueda para mostrar todas las tareas que tenían un texto específico en su descripción, y se aseguró de manejar bien los errores que pudieran surgir.
+Generar informes de progreso
+marcos y zoe
+Marcos y Zoe trabajaron juntos en la generación de informes. Marcos diseñó el formato del informe, mientras que Zoe se encargó de la lógica para generar los datos. Ambos se aseguraron de que los informes fueran claros y útiles para los usuarios..
+Calcular orden del método agregar_tarea
+zoe 
+Zoe hizo un análisis detallado de la complejidad temporal del método agregar_tarea, explicando claramente cómo se logró la eficiencia actual y sugiriendo posibles mejoras.
+Implementar contar_tareas_pendientes_cte
+zoe y marcos
+Zoe y Marcos trabajaron juntos en esta implementación. Zoe propuso la lógica inicial y Marcos optimizó el código para asegurarse de que la complejidad temporal fuera constante.
+Documentar el código fuente
+zoe y marcos
+Marcos y Zoe colaboraron para documentar el código fuente. Marcos se encargó de la documentación técnica detallada, mientras que Zoe se aseguró de que los comentarios fueran claros y fáciles de entender para otros desarrolladores.
+Redactar el informe de análisis de algoritmos
+zoe 
+Zoe escribió la mayor parte del informe, detallando el análisis de algoritmos y optimización. Ana revisó el informe y añadió ejemplos prácticos para ilustrar los conceptos.
+Trabajar en equipo y colaborar efectivamente
+marcos y zoe 
+Todo el equipo trabajó muy de cerca, organizando reuniones regulares para hablar sobre el progreso y resolver problemas. Se apoyaron entre ellos y compartieron las responsabilidades de manera justa.
+Resolución de conflictos y gestión del tiempo
+zoe y marcos
+El equipo tuvo algunos problemas con los horarios, pero los resolvieron con una mejor planificación y comunicación. Zoe propuso una herramienta de gestión de tareas que ayudó a organizar mejor al equipo.
+Presentación final del proyecto
+zoe y marcos
+La presentación final la hizo todo el equipo. Zoe se encargó de la introducción, Juan presentó la parte técnica y Marcos concluyó con los resultados y conclusiones. Recibieron buenos comentarios por lo clara y bien organizada que estuvo.
+Revisión final y entrega
+marcos y zoe 
+Antes de entregar el proyecto, todo el equipo lo revisó para asegurarse de que cumpliera con todos los requisitos y no tuviera errores. Ajustaron algunos detalles finales y hicieron pruebas adicionales..
+Colaboración y trabajo en equipo
+zoe y marcos 
+La colaboración fue estupenda, con todos los miembros participando activamente y ayudándose entre sí. Mantuvieron una comunicación abierta y solucionaron los problemas en equipo.
+Gestión del tiempo
+zoe y marcos 
+Aunque tuvieron algunos problemas con el tiempo, lograron mejorar su gestión del proyecto con una planificación semanal y utilizando herramientas para seguir el progreso de las tareas.
+Evaluación de la calidad del código
+zoe y marcos 
+El equipo se enfocó en mantener un alto nivel de calidad en el código, haciendo revisiones entre ellos y asegurándose de que todos los métodos estuvieran bien documentados y optimizados.
+
+
+
