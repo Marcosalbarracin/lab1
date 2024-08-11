@@ -18,6 +18,8 @@ class ListaEnlazada:
     def __init__(self):
         self.cabeza = None
         self.id_actual = 1
+        self.contador_de_pendi = 0
+        self.contador_de_total = 0
 
     def esta_vacia(self):
         return self.cabeza is None
@@ -27,6 +29,7 @@ class ListaEnlazada:
         if not self.buscar_tarea_descripcion(descripcion):
 
             self.contador_de_total += 1
+            self.contador_de_pendi += 1
             tarea = Tarea(self.id_actual, descripcion, prioridad, categoria)
             nuevo_nodo = Nodo(tarea)
             self.id_actual += 1
@@ -81,6 +84,7 @@ class ListaEnlazada:
                     else:
                         previo.siguiente = actual.siguiente
                     if actual.tarea.completada == False:
+                        self.contador_de_pendi -= 1
                     self.contador_de_total -= 1
                     print(f"Tarea eliminada: {actual.tarea.descripcion}")
                     return
@@ -130,10 +134,23 @@ class ListaEnlazada:
         return contador
     
     def contar_tareas_pendientes_cte(self)->int:
-        pass
+        return self.contador_de_pendi
         
     def mostrar_estadisticas(self)->None:
-    pass
+        completadas = self.contador_de_total - self.contar_tareas_pendientes_cte()
+        pendientes = self.contar_tareas_pendientes_cte()
+        total = self.contador_de_total
+        
+        if total > 0:
+            porcentaje_completadas = (completadas / total) * 100
+            porcentaje_pendientes = (pendientes / total) * 100
+        else:
+            porcentaje_completadas = 0
+            porcentaje_pendientes = 0
+    
+        print(f"Total de tareas: {total}")
+        print(f"Tareas completadas: {completadas} ({porcentaje_completadas:.2f}%)")
+        print(f"Tareas pendientes: {pendientes} ({porcentaje_pendientes:.2f}%)")
 
     # Carga y guardado de archivos
     def guardar_en_csv(self, archivo):
@@ -164,6 +181,7 @@ class ListaEnlazada:
         
             if tarea.completada is not True:
                 self.contador_de_pendi += 1
+            self.contador_de_total += 1
             nuevo_nodo = Nodo(tarea)
             if self.esta_vacia() or tarea.prioridad > self.cabeza.tarea.prioridad:
                 nuevo_nodo.siguiente = self.cabeza
@@ -191,7 +209,8 @@ def menu():
     print("5. Mostrar tareas pendientes")
     print("6. Guardar tareas en archivo CSV")
     print("7. Cargar tareas desde archivo CSV")
-    print("8. Salir")
+    print("8. Mostrar estadísticas")
+    print("9. Salir")
 
 def main():
     lista_tareas = ListaEnlazada()
@@ -256,6 +275,9 @@ def main():
             lista_tareas.cargar_desde_csv(archivo_csv)
         
         elif opcion == "8":
+            lista_tareas.mostrar_estadisticas()
+        
+        elif opcion == "9":
             print("Saliendo del sistema de gestión de tareas.")
             break
         
